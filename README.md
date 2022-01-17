@@ -4,5 +4,5 @@
 
 - Practicing
   - React hooks
-  - Component library
-- Uses Pokemon API
+  - Component library (React Bootstrap)
+- Uses PokéAPI

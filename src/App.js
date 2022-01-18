@@ -5,14 +5,23 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import "./App.css";
 import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
 
 const App = () => {
 	const [pokemons, setPokemons] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		axios
-			.get("https://pokeapi.co/api/v2/pokemon")
-			.then((res) => setPokemons(res.data.results));
+		axios.get("https://pokeapi.co/api/v2/pokemon").then((res) => {
+			const fetches = res.data.results.map((p) =>
+				axios.get(p.url).then((res) => res.data)
+			);
+
+			Promise.all(fetches).then((data) => {
+				setPokemons(data);
+				setIsLoading(false);
+			});
+		});
 	}, []);
 
 	// console.log(pokemons);
@@ -27,21 +36,27 @@ const App = () => {
 			<Container>
 				<Row
 					xs={1}
-					md={5}
+					md={4}
+					lg={6}
 					className="justify-content-between my-5 g-flex gap-3"
 				>
-					{pokemons.map((p) => (
-						<Card key={p.name} bg="dark" text="light">
-							<Card.Img
-								variant="top"
-								src="https://source.unsplash.com/1600x900/?pokemon"
-								style={{ padding: "1rem" }}
-							/>
-							<Card.Body>
-								<Card.Title>{p.name}</Card.Title>
-							</Card.Body>
-						</Card>
-					))}
+					{isLoading && (
+						<Spinner animation="border" role="status">
+							<span>Loading...</span>
+						</Spinner>
+					)}
+					{!isLoading &&
+						pokemons.map((p) => (
+							<Card key={p.name} bg="dark" text="light">
+								<Card.Header>{p.name}</Card.Header>
+								<Card.Body>
+									<Card.Img
+										variant="top"
+										src={p.sprites.other.dream_world.front_default}
+									/>
+								</Card.Body>
+							</Card>
+						))}
 				</Row>
 			</Container>
 		</div>

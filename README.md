@@ -5,4 +5,4 @@
 - Practicing
   - React hooks
   - Component library (React Bootstrap)
-- Uses PokéAPI
+- Uses [PokéAPI](https://pokeapi.co/)

@@ -13,3 +13,57 @@ main {
 	height: 100%;
 	color: white;
 }
+
+/* Card background colors */
+
+.card.grass {
+	background-color: rgb(45, 156, 45);
+}
+.card.fire {
+	background-color: rgb(221, 82, 18);
+}
+.card.water {
+	background-color: rgb(46, 118, 226);
+}
+.card.bug {
+	background-color: rgb(44, 44, 44);
+}
+.card.normal {
+	background-color: rgb(189, 189, 189);
+}
+.card.poison {
+	background-color: rgb(104, 75, 185);
+}
+.card.electric {
+	background-color: rgb(255, 218, 55);
+}
+.card.ground {
+	background-color: rgb(134, 92, 0);
+}
+.card.fairy {
+	background-color: rgb(255, 0, 255);
+}
+.card.fighting {
+	background: radial-gradient(#ffe600, #ff0000);
+}
+.card.psychic {
+	background: radial-gradient(rgb(255, 230, 0), #4e1ed3, #00ff00);
+}
+.card.rock {
+	background: rgb(92, 92, 92);
+}
+.card.ghost {
+	background: radial-gradient(#4e1ed3, #222);
+}
+.card.ice {
+	background: radial-gradient(#eee, rgb(0, 217, 255));
+}
+.card.dragon {
+	background: radial-gradient(rgb(255, 0, 0), rgb(0, 140, 255));
+}
+.card.dark {
+	background: radial-gradient(rgb(170, 170, 170), #222);
+}
+.card.steel {
+	background: radial-gradient(rgb(0, 81, 255), rgb(170, 170, 170));
+}

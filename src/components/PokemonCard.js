@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 
 const PokemonCard = ({ pokemon }) => {
 	return (
-		<Card bg="dark" text="light">
+		<Card text="light" className={`${pokemon.types[0].type.name}`}>
 			<Card.Header>{pokemon.name}</Card.Header>
 			<Card.Body>
 				<Card.Img

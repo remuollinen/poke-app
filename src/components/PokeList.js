@@ -37,6 +37,7 @@ const PokeList = () => {
 				});
 			});
 	};
+	console.log(pokemons);
 
 	return (
 		<div>

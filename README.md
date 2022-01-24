@@ -9,6 +9,5 @@
 
 ## Next features
 
-- Card background by type
 - Open single pokemon page/modal
 - Favorites with local storage

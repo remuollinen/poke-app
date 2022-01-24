@@ -1,4 +1,5 @@
 import React from "react";
+import { LinkContainer } from "react-router-bootstrap";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -8,18 +9,24 @@ const Header = () => {
 	return (
 		<Navbar
 			collapseOnSelect
-			expand="sm"
 			bg="dark"
 			variant="dark"
+			expand="lg"
 			className="add_padding"
 		>
 			<Container>
-				<Navbar.Brand href="#">PokéApp</Navbar.Brand>
-				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-				<Navbar.Collapse id="responsive-navbar-nav">
-					<Nav>
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#pokemons">Pokémons</Nav.Link>
+				<LinkContainer to="/">
+					<Navbar.Brand>PokéApp</Navbar.Brand>
+				</LinkContainer>
+				<Navbar.Toggle aria-controls="basic-navbar-nav" />
+				<Navbar.Collapse id="basic-navbar-nav">
+					<Nav className="me-auto">
+						<LinkContainer to="/">
+							<Nav.Link>Home</Nav.Link>
+						</LinkContainer>
+						<LinkContainer to="pokemons">
+							<Nav.Link>Pokémons</Nav.Link>
+						</LinkContainer>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

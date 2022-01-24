@@ -1,15 +1,22 @@
 import React from "react";
-import { Router } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header";
 import PokeList from "./components/PokeList";
 import "./App.css";
+import Home from "./components/Home";
+import Layout from "./components/Layout";
 
 const App = () => {
 	return (
 		<div>
-			<Header />
-			<PokeList />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Layout />}>
+						<Route index element={<Home />} />
+						<Route path="pokemons" element={<PokeList />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
 };

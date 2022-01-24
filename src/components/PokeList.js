@@ -17,6 +17,7 @@ const PokeList = () => {
 
 	useEffect(() => {
 		getPokemons();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const getPokemons = () => {
@@ -39,7 +40,7 @@ const PokeList = () => {
 
 	return (
 		<div>
-			<Container>
+			<Container className="text-center">
 				<Row
 					xs={1}
 					md={4}

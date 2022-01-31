@@ -5,6 +5,7 @@ import PokeList from "./components/PokeList";
 import "./App.css";
 import Home from "./components/Home";
 import Layout from "./components/Layout";
+import PokeSingle from "./components/PokeSingle";
 
 const App = () => {
 	return (
@@ -13,7 +14,8 @@ const App = () => {
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Home />} />
-						<Route path="pokemons" element={<PokeList />} />
+						<Route path="pokemons" element={<PokeList />}></Route>
+						<Route path=":pokemonName" element={<PokeSingle />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

@@ -17,6 +17,7 @@ const PokeList = () => {
 
 	useEffect(() => {
 		getPokemons();
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -37,7 +38,6 @@ const PokeList = () => {
 				});
 			});
 	};
-	console.log(pokemons);
 
 	return (
 		<div>
@@ -50,7 +50,15 @@ const PokeList = () => {
 				>
 					{isLoading && <Spinner animation="border" role="status"></Spinner>}
 					{!isLoading &&
-						pokemons.map((p) => <PokemonCard key={p.id} pokemon={p} />)}
+						pokemons.map((p) => (
+							<PokemonCard
+								key={p.id}
+								types={p.types}
+								name={p.name}
+								image={p.sprites.other.dream_world.front_default}
+								pokemonName={p.name}
+							/>
+						))}
 				</Row>
 				<Button variant="primary" size="lg" onClick={getPokemons}>
 					Load more

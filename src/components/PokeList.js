@@ -8,7 +8,7 @@ import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 
-const PokeList = ({ favHandler }) => {
+const PokeList = ({ favHandler, favourites }) => {
 	const [pokemons, setPokemons] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [nextPokemons, setNextPokemons] = useState(
@@ -50,14 +50,15 @@ const PokeList = ({ favHandler }) => {
 				>
 					{isLoading && <Spinner animation="border" role="status"></Spinner>}
 					{!isLoading &&
-						pokemons.map((p) => (
+						pokemons.map((pokemon) => (
 							<PokemonCard
-								key={p.id}
-								type={p.types[0].type.name}
-								name={p.name}
-								image={p.sprites.other.dream_world.front_default}
-								pokemonName={p.name}
-								favHandler={favHandler}
+								key={pokemon.id}
+								type={pokemon.types[0].type.name}
+								name={pokemon.name}
+								image={pokemon.sprites.other.dream_world.front_default}
+								pokemonName={pokemon.name}
+								fav={favourites.some((item) => item.name === pokemon.name)}
+								favClick={() => favHandler(pokemon)}
 							/>
 						))}
 				</Row>

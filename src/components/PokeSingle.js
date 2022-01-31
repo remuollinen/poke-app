@@ -32,7 +32,6 @@ const PokeSingle = () => {
 				};
 				setPokemon(data);
 				setIsLoading(false);
-				console.log(data);
 			});
 	};
 
@@ -57,7 +56,7 @@ const PokeSingle = () => {
 				</Container>
 			)}
 			<Button variant="primary" onClick={() => navigate(-1)}>
-				Back to list
+				Go Back
 			</Button>
 		</Container>
 	);

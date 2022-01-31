@@ -9,5 +9,4 @@
 
 ## Next features
 
-- Open single pokemon page/modal
 - Favorites with local storage

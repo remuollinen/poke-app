@@ -8,7 +8,7 @@ import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 
-const PokeList = () => {
+const PokeList = ({ favHandler }) => {
 	const [pokemons, setPokemons] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [nextPokemons, setNextPokemons] = useState(
@@ -53,10 +53,11 @@ const PokeList = () => {
 						pokemons.map((p) => (
 							<PokemonCard
 								key={p.id}
-								types={p.types}
+								type={p.types[0].type.name}
 								name={p.name}
 								image={p.sprites.other.dream_world.front_default}
 								pokemonName={p.name}
+								favHandler={favHandler}
 							/>
 						))}
 				</Row>
